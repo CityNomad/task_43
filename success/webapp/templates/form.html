@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count Numbers</title>
+</head>
+<body>
+
+<form action=" " method="post">
+    {% csrf_token %}
+    <label style="font-size: 20px">First number:</label><br/>
+    <input style="margin-top:15px; margin-bottom: 15px" type="text" name="first_num"/><br/>
+    <label style="font-size: 20px">Second number:</label><br/>
+    <input style="margin-top:15px; margin-bottom: 15px" type="text" name="second_num"/><br/>
+  <div style="margin-bottom: 20px">
+    <input type="radio" id="add"
+     name="action_type" value="add">
+    <label for="add">add</label><br/>
+
+    <input type="radio" id="substract"
+     name="action_type" value="substract">
+    <label for="substract">substract</label><br/>
+
+    <input type="radio" id="multiply"
+     name="action_type" value="multiply">
+    <label for="multiply">multiply</label><br/>
+
+    <input type="radio" id="divide"
+     name="action_type" value="divide">
+    <label for="divide">divide</label><br/>
+
+  </div>
+    <input type="submit" value="Calculate"/>
+</form>
+
+    {% if action_type == "add" %}
+        <p>{{ first_num }} + {{ second_num }} = {{ result }}</p>
+    {% elif action_type == "substract" %}
+        <p>{{ first_num }} - {{ second_num }} = {{ result }}</p>
+    {% elif action_type == "multiply" %}
+        <p>{{ first_num }} * {{ second_num }} = {{ result }}</p>
+    {% elif action_type == "divide" %}
+        <p>{{ first_num }} / {{ second_num }} = {{ result }}</p>
+    {% endif %}
+
+
+</body>
+</html>
